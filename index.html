@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>San Valentín 💜</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background: radial-gradient(circle at bottom, #2b1055, #120022);
+  overflow:hidden;
+  font-family: 'Arial', sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+}
+
+/* estrellas */
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:.3;}
+  to{opacity:1;}
+}
+
+/* nota inicial */
+#nota{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:10;
+}
+
+#nota div{
+  background:#3b1c6b;
+  padding:25px;
+  border-radius:15px;
+  max-width:400px;
+  text-align:center;
+}
+
+button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff6bd6;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+#contenido{
+  display:none;
+  text-align:center;
+}
+
+#no{
+  position:absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div id="nota">
+  <div>
+    <p>
+      Querida <b>Diana Vianey Garcia Venegas</b>,<br><br>
+      quiero que sepas que eres una niña grandiosa,
+      inteligente y no sabes cómo me encantas.
+    </p>
+    <button onclick="cerrarNota()">Cerrar 💜</button>
+  </div>
+</div>
+
+<div id="contenido">
+  <h1>Piciosa ¿quieres ser mi San Valentín? 💜</h1>
+  <button onclick="alert('Sabía que dirías que sí 💕')">Sí 🐘🐧</button>
+  <button id="no">No 😅</button>
+</div>
+
+<script>
+/* estrellas */
+for(let i=0;i<150;i++){
+  let s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDuration=(1+Math.random()*2)+"s";
+  document.body.appendChild(s);
+}
+
+function cerrarNota(){
+  document.getElementById("nota").style.display="none";
+  document.getElementById("contenido").style.display="block";
+}
+
+const noBtn=document.getElementById("no");
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.left=Math.random()*80+"%";
+  noBtn.style.top=Math.random()*80+"%";
+});
+</script>
+
+</body>
+</html>
